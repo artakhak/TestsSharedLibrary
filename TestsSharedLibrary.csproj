@@ -1,0 +1,77 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <PackageVersion>1.0.0</PackageVersion>
+    <EnableDefaultItems>false</EnableDefaultItems>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <Authors>Artak Hakobyan</Authors>
+	 <Version>1.0.0</Version>
+    <Company>OROptimizer</Company>
+    <Product>TestsSharedLibrary</Product>
+    <Description>A library used in test projects.
+The design of interfaces in this library might change in the future.
+Therefore, use this library at your own risk.
+        </Description>
+    <Copyright>Copyright 2022 (c) TestsSharedLibrary. All rights reserved.</Copyright>
+    <PackageProjectUrl>https://github.com/artakhak/TestsSharedLibrary</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/artakhak/TestsSharedLibrary</RepositoryUrl>
+    <PackageReleaseNotes>Initial release</PackageReleaseNotes>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="TestsSharedLibrary.csproj.vspscc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClassVisualizers\TestStatisticGroupVisualizer.cs" />
+    <Compile Include="ClassVisualizers\TestStatisticsVisualizer.cs" />
+    <Compile Include="ClassVisualizers\TestStatisticVisualizer.cs" />
+    <Compile Include="ClassVisualizers\VisualizedElementNames.cs" />
+    <Compile Include="Diagnostics\Log\Log4Tests.cs" />
+    <Compile Include="Diagnostics\Log\LogHelper4TestsContext.cs" />
+    <Compile Include="Diagnostics\Log\LogLevel.cs" />
+    <Compile Include="TestsBase.cs" />
+    <Compile Include="TestsHelper.cs" />
+    <Compile Include="TestSimulation\IProbabilityBasedRandomNumberGenerator.cs" />
+    <Compile Include="TestSimulation\IRandomNumberGenerator.cs" />
+    <Compile Include="TestSimulation\ISimulationRandomNumberGenerator.cs" />
+    <Compile Include="TestSimulation\ProbabilityBasedRandomNumberGenerator.cs" />
+    <Compile Include="TestSimulation\RandomNumberGenerator.cs" />
+    <Compile Include="TestSimulation\RandomNumbersRange.cs" />
+    <Compile Include="TestSimulation\SimulationRandomNumberGenerator.cs" />
+    <Compile Include="TestSimulation\Statistics\ExclusiveTestStatisticGroup.cs" />
+    <Compile Include="TestSimulation\Statistics\INonGroupTestStatistic.cs" />
+    <Compile Include="TestSimulation\Statistics\IStatisticCounter.cs" />
+    <Compile Include="TestSimulation\Statistics\ITestStatistic.cs" />
+    <Compile Include="TestSimulation\Statistics\ITestStatisticGroup.cs" />
+    <Compile Include="TestSimulation\Statistics\ITestStatistics.cs" />
+    <Compile Include="TestSimulation\Statistics\NonExclusiveTestStatisticGroup.cs" />
+    <Compile Include="TestSimulation\Statistics\TestStatistic.cs" />
+    <Compile Include="TestSimulation\Statistics\TestStatisticBase.cs" />
+    <Compile Include="TestSimulation\Statistics\TestStatisticGroupBase.cs" />
+    <Compile Include="TestSimulation\Statistics\TestStatistics.cs" />
+    <Compile Include="TestSimulation\Statistics\TetStatisticsHelpers.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="ClassVisualizer" Version="1.0.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis" Version="2.3.2" />
+    <PackageReference Include="NeoSmart.AsyncLock" Version="0.3.0.2" />
+    <PackageReference Include="System.Runtime.Loader" Version="4.3.0" />
+    <PackageReference Include="JetBrains.Annotations" Version="2021.2.0" PrivateAssets="all" ExcludeAssets="runtime">
+      <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="OROptimizer.Shared" Version="2.1.1" />
+  </ItemGroup>
+</Project>
