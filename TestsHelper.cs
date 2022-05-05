@@ -348,8 +348,11 @@ public static class TestsHelper
                         if (actualMemberValue is string actualObjectToString && actualObjectToString.Length > stringMaxDisplayLength)
                             actualObjectForDisplay = $"{actualObjectToString.Substring(0, stringMaxDisplayLength)} ...";
 
-                        errorMessage.AppendLine($"Expected value is '{expectedObjectForDisplay}'");
-                        errorMessage.AppendLine($"Actual value is   '{actualObjectForDisplay}'");
+                        errorMessage.AppendLine("Expected value is:");
+                        errorMessage.AppendLine($"'{expectedObjectForDisplay}'");
+
+                        errorMessage.AppendLine($"Actual value is:");
+                        errorMessage.AppendLine($"'{actualObjectForDisplay}'");
 
                         throw new Exception(errorMessage.ToString());
                     }

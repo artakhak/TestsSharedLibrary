@@ -37,4 +37,9 @@ public interface ISimulationRandomNumberGenerator : IRandomNumberGenerator
     ///     Saves all random numbers to a file.
     /// </summary>
     void SaveRandomNumbers();
+
+    /// <summary>
+    ///     Saves all random numbers to directory file <paramref name="savedFilePath"/>.
+    /// </summary>
+    void SaveRandomNumbers([NotNull] string savedFilePath);
 }

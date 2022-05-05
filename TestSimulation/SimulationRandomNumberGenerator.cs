@@ -157,8 +157,12 @@ public class SimulationRandomNumberGenerator : RandomNumberGenerator, ISimulatio
             string.IsNullOrWhiteSpace(_lastSimulationIterationIdentifier))
             throw new Exception($"Method '{nameof(SaveRandomNumbers)}()' can be called only if method '{nameof(OnSimulationIterationStarting)}' was called.");
 
-        var simulationFilePath = GetSimulationFilePath(_lastSimulationIdentifier);
+        SaveRandomNumbers(GetSimulationFilePath(_lastSimulationIdentifier));
+    }
 
+    /// <inheritdoc />
+    public void SaveRandomNumbers(string savedFilePath)
+    {
         lock (_lockObject)
         {
             try
@@ -167,12 +171,12 @@ public class SimulationRandomNumberGenerator : RandomNumberGenerator, ISimulatio
 
                 stringBuilder.AppendLine(@"<?xml version=""1.0"" encoding=""utf-8""?>");
                 stringBuilder.AppendLine($"<Simulation SimulationIdentifier='{_lastSimulationIdentifier}' >");
-                stringBuilder.AppendLine($"    <SimulationIteration SimulationIterationIdentifier='{_lastSimulationIterationIdentifier}' >");
+                stringBuilder.AppendLine($"    <SimulationIteration SimulationIterationIdentifier='{_lastSimulationIterationIdentifier}' {nameof(RandomNumberSeed)}='{RandomNumberSeed}'>");
                 stringBuilder.AppendLine($"        <RandomNumbers Values='{string.Join(",", _generatedNumbers)}' />");
-                stringBuilder.AppendLine("    </SimulationIteration>");
-                stringBuilder.AppendLine("</Simulation>");
+                stringBuilder.AppendLine( "    </SimulationIteration>");
+                stringBuilder.AppendLine( "</Simulation>");
 
-                using (var fileStream = new StreamWriter(simulationFilePath, false))
+                using (var fileStream = new StreamWriter(savedFilePath, false))
                 {
                     fileStream.Write(stringBuilder.ToString());
                 }
@@ -180,7 +184,7 @@ public class SimulationRandomNumberGenerator : RandomNumberGenerator, ISimulatio
             catch (Exception e)
             {
                 LogHelper.Context.Log.Error(e);
-                throw new Exception($"Failed to save the simulation data to file '{simulationFilePath}' for simulation '{_lastSimulationIdentifier}' and iteration '{_lastSimulationIterationIdentifier}'.");
+                throw new Exception($"Failed to save the simulation data to file '{savedFilePath}' for simulation '{_lastSimulationIdentifier}' and iteration '{_lastSimulationIterationIdentifier}'.");
             }
         }
     }

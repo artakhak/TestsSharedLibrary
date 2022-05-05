@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup Label="Globals">
     <SccProjectName>SAK</SccProjectName>
     <SccProvider>SAK</SccProvider>
@@ -7,23 +7,23 @@
   </PropertyGroup>
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <PackageVersion>1.0.0</PackageVersion>
+	<Version>1.0.1</Version>
     <EnableDefaultItems>false</EnableDefaultItems>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <Authors>Artak Hakobyan</Authors>
-	 <Version>1.0.0</Version>
     <Company>OROptimizer</Company>
     <Product>TestsSharedLibrary</Product>
     <Description>A library used in test projects.
 The design of interfaces in this library might change in the future.
 Therefore, use this library at your own risk.
-        </Description>
+    </Description>
     <Copyright>Copyright 2022 (c) TestsSharedLibrary. All rights reserved.</Copyright>
     <PackageProjectUrl>https://github.com/artakhak/TestsSharedLibrary</PackageProjectUrl>
     <RepositoryUrl>https://github.com/artakhak/TestsSharedLibrary</RepositoryUrl>
-    <PackageReleaseNotes>Initial release</PackageReleaseNotes>
+    <PackageReleaseNotes>Added ISimulationRandomNumberGenerator.SaveRandomNumbers(string savedFilePath) overloaded method for saving the random numbers to a file specified in parameter.</PackageReleaseNotes>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <AssemblyVersion></AssemblyVersion>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="TestsSharedLibrary.csproj.vspscc" />
@@ -65,7 +65,6 @@ Therefore, use this library at your own risk.
     </None>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="ClassVisualizer" Version="1.0.0" />
     <PackageReference Include="Microsoft.CodeAnalysis" Version="2.3.2" />
     <PackageReference Include="NeoSmart.AsyncLock" Version="0.3.0.2" />
     <PackageReference Include="System.Runtime.Loader" Version="4.3.0" />
@@ -73,5 +72,6 @@ Therefore, use this library at your own risk.
       <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="OROptimizer.Shared" Version="2.1.1" />
+    <PackageReference Include="ClassVisualizer" Version="1.0.1" />
   </ItemGroup>
 </Project>
