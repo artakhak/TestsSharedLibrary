@@ -20,12 +20,11 @@ namespace TestsSharedLibrary;
 public static class TestsHelper
 {
     public delegate void ObjectsEqualityValidationDelegate(object expectedObject, object actualObject);
-
+    
     /// <summary>
-    ///     Max number of calls to
-    ///     <see
-    ///         cref="ValidateObjectsAreEqualAsync(object, object, Func{MemberInfo, bool}, ObjectsEqualityValidationDelegate, Action{ValidatedObjectData}, Action{ValidatedObjectData})" />
-    ///     to detect a situation when we get in infinite loop.
+    /// Represents the maximum number of calls allowed to the validation method
+    /// to prevent potential infinite loops during object equality validation.
+    /// <see cref="ValidateObjectsAreEqualAsync" /> to detect a situation when we get in infinite loop.
     /// </summary>
     private const int MaxCallCountForValidateObjectsAreEqual = 10000000;
 
@@ -83,10 +82,10 @@ public static class TestsHelper
     ///     Sets ups the logger and sets the log level to <see cref="LogLevel.Error" />.
     ///     Also, resets the test statistics
     /// </summary>
-    public static void SetupLogger()
+    public static void SetupLogger([CanBeNull] Log4TestsParameters log4TestsParameters = null)
     {
         LogHelper.RemoveContext();
-        LogHelper.RegisterContext(new LogHelper4TestsContext());
+        LogHelper.RegisterContext(new LogHelper4TestsContext(log4TestsParameters));
         Log4Tests.LogLevel = LogLevel.Info;
         Log4Tests.ResetLogStatistics();
     }
