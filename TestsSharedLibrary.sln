@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestsSharedLibrary", "TestsSharedLibrary.csproj", "{AAD90044-1733-47B7-9146-9F048295DDDD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependencies", "Dependencies", "{25059EB8-8050-4BAA-8F0C-F859558F17D8}"
+	ProjectSection(SolutionItems) = preProject
+		DEPENDENCIES.README.txt = DEPENDENCIES.README.txt
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OROptimizer.Shared", "..\OROptimizer.Shared\OROptimizer.Shared\OROptimizer.Shared.csproj", "{E6921A52-7EE9-4F3A-A9DF-154FFCE8E0C1}"
 EndProject

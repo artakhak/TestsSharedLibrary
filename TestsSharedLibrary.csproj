@@ -7,6 +7,7 @@
 	</PropertyGroup>
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
+		<PackageVersion>1.0.3</PackageVersion>
 		<Version>1.0.3</Version>
 		<EnableDefaultItems>false</EnableDefaultItems>
 		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
@@ -21,11 +22,13 @@
 		<Copyright>Copyright 2022 (c) TestsSharedLibrary. All rights reserved.</Copyright>
 		<PackageProjectUrl>https://github.com/artakhak/TestsSharedLibrary</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/artakhak/TestsSharedLibrary</RepositoryUrl>
-		<PackageReleaseNotes>A small enhancement.</PackageReleaseNotes>
+		<PackageReleaseNotes>Referencing the latest versions of OROptimizer.Shared and ClassVisualizer packages.</PackageReleaseNotes>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<AssemblyVersion>
 		</AssemblyVersion>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<Title>TestsSharedLibrary</Title>
 	</PropertyGroup>
 	<ItemGroup>
 		<None Remove="TestsSharedLibrary.csproj.vspscc" />
@@ -68,16 +71,20 @@
 		</None>
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="ClassVisualizer" Version="1.0.2" />
+
 		<PackageReference Include="Microsoft.CodeAnalysis" Version="4.13.0" />
-		<PackageReference Include="NeoSmart.AsyncLock" Version="0.3.0.2" />
-		<!--<PackageReference Include="OROptimizer.Shared" Version="2.2.0" />-->
+		<PackageReference Include="NeoSmart.AsyncLock" Version="3.2.1" />
+		<PackageReference Include="OROptimizer.Shared" Version="2.2.0" />
+		<PackageReference Include="ClassVisualizer" Version="1.0.3" />
 		<PackageReference Include="System.Runtime.Loader" Version="4.3.0" />
 		<PackageReference Include="JetBrains.Annotations" Version="2021.3.0" PrivateAssets="all" ExcludeAssets="runtime">
 			<IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 	</ItemGroup>
 	<ItemGroup>
-	  <ProjectReference Include="..\OROptimizer.Shared\OROptimizer.Shared\OROptimizer.Shared.csproj" />
+		<!--
+		<ProjectReference Include="..\ClassVisualizer\ClassVisualizer\ClassVisualizer.csproj" />
+		<ProjectReference Include="..\OROptimizer.Shared\OROptimizer.Shared\OROptimizer.Shared.csproj" />
+		-->
 	</ItemGroup>
 </Project>
