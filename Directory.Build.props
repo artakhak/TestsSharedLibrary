@@ -1,0 +1,15 @@
+<Project>
+    <PropertyGroup>
+        <!-- Define the symbol here to apply it to all projects in the solution -->
+        <REFERENCE_OROptimizer_Shared_PROJECT>false</REFERENCE_OROptimizer_Shared_PROJECT>        
+        <REFERENCE_ClassVisualizer_PROJECT>false</REFERENCE_ClassVisualizer_PROJECT>   
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(REFERENCE_OROptimizer_Shared_PROJECT)' == 'true'">
+        <DefineConstants>$(DefineConstants);REFERENCE_OROptimizer_Shared_PROJECT</DefineConstants>
+    </PropertyGroup>    
+
+    <PropertyGroup Condition="'$(REFERENCE_ClassVisualizer_PROJECT)' == 'true'">
+        <DefineConstants>$(DefineConstants);REFERENCE_ClassVisualizer_PROJECT</DefineConstants>
+    </PropertyGroup>
+</Project>

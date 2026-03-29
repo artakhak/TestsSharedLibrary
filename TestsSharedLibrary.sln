@@ -18,6 +18,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		LICENSE.txt = LICENSE.txt
 		README.md = README.md
+		Directory.Build.props = Directory.Build.props
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ClassVisualizer", "ClassVisualizer", "{218D9310-C11F-4760-A409-244C84075942}"
+	ProjectSection(SolutionItems) = preProject
+		..\ClassVisualizer\Directory.Build.props = ..\ClassVisualizer\Directory.Build.props
 	EndProjectSection
 EndProject
 Global
@@ -44,7 +50,8 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E6921A52-7EE9-4F3A-A9DF-154FFCE8E0C1} = {25059EB8-8050-4BAA-8F0C-F859558F17D8}
-		{4AFAAC48-0750-42F2-AE8F-B6A855D9471C} = {25059EB8-8050-4BAA-8F0C-F859558F17D8}
+		{218D9310-C11F-4760-A409-244C84075942} = {25059EB8-8050-4BAA-8F0C-F859558F17D8}
+		{4AFAAC48-0750-42F2-AE8F-B6A855D9471C} = {218D9310-C11F-4760-A409-244C84075942}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {01FA805F-C845-4042-9391-D1699809BC2F}

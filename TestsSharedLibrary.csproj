@@ -7,8 +7,8 @@
 	</PropertyGroup>
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
-		<PackageVersion>1.0.3</PackageVersion>
-		<Version>1.0.3</Version>
+		<PackageVersion>1.0.5</PackageVersion>
+		<Version>1.0.5</Version>
 		<EnableDefaultItems>false</EnableDefaultItems>
 		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
 		<Authors>Artak Hakobyan</Authors>
@@ -22,7 +22,10 @@
 		<Copyright>Copyright 2022 (c) TestsSharedLibrary. All rights reserved.</Copyright>
 		<PackageProjectUrl>https://github.com/artakhak/TestsSharedLibrary</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/artakhak/TestsSharedLibrary</RepositoryUrl>
-		<PackageReleaseNotes>Referencing the latest versions of OROptimizer.Shared and ClassVisualizer packages.</PackageReleaseNotes>
+		<PackageReleaseNotes>
+			- Referencing OROptimizer.Shared V2.7.2
+			- Couple of minor changes in project file
+		</PackageReleaseNotes>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<AssemblyVersion>
@@ -71,20 +74,29 @@
 		</None>
 	</ItemGroup>
 	<ItemGroup>
-
 		<PackageReference Include="Microsoft.CodeAnalysis" Version="4.13.0" />
 		<PackageReference Include="NeoSmart.AsyncLock" Version="3.2.1" />
-		<PackageReference Include="OROptimizer.Shared" Version="2.2.0" />
-		<PackageReference Include="ClassVisualizer" Version="1.0.3" />
 		<PackageReference Include="System.Runtime.Loader" Version="4.3.0" />
 		<PackageReference Include="JetBrains.Annotations" Version="2021.3.0" PrivateAssets="all" ExcludeAssets="runtime">
 			<IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 	</ItemGroup>
-	<ItemGroup>
-		<!--
-		<ProjectReference Include="..\ClassVisualizer\ClassVisualizer\ClassVisualizer.csproj" />
+
+	<!--OROptimizer.Shared-->
+	<ItemGroup Condition="'$(Configuration)'=='Release' Or !$(DefineConstants.Contains('REFERENCE_OROptimizer_Shared_PROJECT'))">
+		<PackageReference Include="OROptimizer.Shared" Version="2.7.1" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(Configuration)'=='Debug' And $(DefineConstants.Contains('REFERENCE_OROptimizer_Shared_PROJECT'))">
 		<ProjectReference Include="..\OROptimizer.Shared\OROptimizer.Shared\OROptimizer.Shared.csproj" />
-		-->
+	</ItemGroup>
+
+	<!--ClassVisualizer-->
+	<ItemGroup Condition="'$(Configuration)'=='Release' Or !$(DefineConstants.Contains('REFERENCE_ClassVisualizer_PROJECT'))">
+		<PackageReference Include="ClassVisualizer" Version="1.0.4" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(Configuration)'=='Debug' And $(DefineConstants.Contains('REFERENCE_ClassVisualizer_PROJECT'))">
+		<ProjectReference Include="..\ClassVisualizer\ClassVisualizer\ClassVisualizer.csproj" />
 	</ItemGroup>
 </Project>
